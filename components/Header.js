@@ -65,7 +65,7 @@ function Header() {
                     objectFit = "contain"
                     className = "rounded-full "
                  />
-                  <p className = "whitespace-nowrap font-semibold pr-3">
+                  <p className = "whitespace-nowrap font-semibold pr-3 text-gray-500">
                       Muwonge Lawrence
                  </p>
 
