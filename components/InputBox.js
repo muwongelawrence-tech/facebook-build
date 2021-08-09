@@ -2,6 +2,7 @@ import { CameraIcon, EmojiHappyIcon, VideoCameraIcon } from '@heroicons/react/so
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { db, storage } from '../firebase';
+
 import firebase from 'firebase';
 
 function InputBox() {
@@ -94,9 +95,11 @@ function InputBox() {
                  className = {`flex flex-col filter hover:brightness-110 
                      transition duration-150 transform hover:scale-105 cursor-pointer`}
                 >
-                   <img 
+                   <Image 
                     src = {imageToPost} 
-                    className = "h-10 object-contain"
+                    className = " object-contain"
+                    height = {20}
+                    width = { 20 }
                     alt = "" 
                    />
                     
