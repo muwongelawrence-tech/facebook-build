@@ -26,9 +26,22 @@ function InputBox() {
                .putString(imageToPost ,'data_url');
 
                removeImage();
+
+               uploadTask.on("state_change",
+               null,
+               (error) => console.error(error),
+               () => {
+                 // the upload completes
+                 storage.ref(`posts/${doc.id}`).getDownloadURL().then(url => {
+                   db.collection("posts").doc(doc.id).set({
+                     postImage: url },{ merge:true })
+                 })
+               }
+
+               );
              }
         });
-
+ 
         inputRef.current.value = "";
         
     };
