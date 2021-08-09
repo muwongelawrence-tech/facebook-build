@@ -1,8 +1,6 @@
-import React from 'react';
-import firebase from "firebase";
+import React, { useEffect, useState } from 'react';
 
-// import { useCollection } from  "react-firebase-hooks/firestore";
-import { useCollection } from 'react-firebase-hooks/firestore';
+//import { useCollection } from 'react-firebase-hooks/firestore';
 
 import { db } from '../firebase';
 
@@ -10,26 +8,38 @@ import Post from './Post';
 
 function Posts() {
 
-    const [ realtimePosts ] = useCollection(
-        db.collection("posts").orderBy("timestamp" , "desc"),
-    );
+    const [ newPosts , setNewPosts] = useState([])
 
-   // console.log(realtimePosts);
+    // const [ realtimePosts ] = useCollection(
+    //     db.collection("posts").orderBy("timestamp" , "desc"),
+    // );
+
+    
+    useEffect(() =>{
+        db.collection('posts').orderBy("timestamp","desc")
+        .onSnapshot(snapshot => setNewPosts(snapshot.docs.map(doc => ({
+            id: doc.id,
+            data : doc.data(),
+   
+        }))) )
+       },[]);
+
+       console.log(newPosts);
 
     return (
 
         <div className = "">
-            { realtimePosts.docs.map(post => (
+            { newPosts.map(({id , data : {name ,message, email ,timestamp ,postImage}})=> (
                 <Post 
-                 key = {post.id}
-                 name = {post.data().name}
-                 message = {post.data().message}
-                 email = {post.data().email}
-                 image = {post.data().image}
-                 timestamp = {post.data().timestamp}
-                 postImage = {post.data().postImage}
+                 key = { id }
+                 name = { name }
+                 message = {message}
+                 email = {email}
+                 timestamp = {timestamp}
+                 postImage = {postImage}
                  />
             ))}
+            
         </div>
     ); 
 }

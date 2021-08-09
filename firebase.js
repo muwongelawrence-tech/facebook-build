@@ -3,13 +3,13 @@ import firebase from "firebase";
 import "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCBJheqHAQfMUj93hTt6DGRIty1s0dAji8",
-    authDomain: "ml-netflix-clone.firebaseapp.com",
-    projectId: "ml-netflix-clone",
-    storageBucket: "ml-netflix-clone.appspot.com",
-    messagingSenderId: "818844800621",
-    appId: "1:818844800621:web:78d620e8f7142679aed164"
-};
+    apiKey: "AIzaSyAwtjbEE7qt5a3_D28fgaMOLXiYXvEhAc4",
+    authDomain: "facebook-build-clone.firebaseapp.com",
+    projectId: "facebook-build-clone",
+    storageBucket: "facebook-build-clone.appspot.com",
+    messagingSenderId: "668330944219",
+    appId: "1:668330944219:web:f9502908f69f6533688efe"
+  };
 
 const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 

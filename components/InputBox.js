@@ -111,20 +111,17 @@ function InputBox() {
             </div>
 
             <div className = "flex justify-evenly p-3 border-t">
+                <span className = "bg-blue-500 text-white w-20 p-2  rounded-md text-center cursor-pointer" onClick = {sendPost} >
+                  send
+                </span>
+
                 <div className = "flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2">
                   <VideoCameraIcon className = "h-7 text-red-500"/>
                   <p
                    className = "text-xs sm:text-sm xl:text-base"
                   >Live Video</p>
                 </div>
-
-                <div className = "flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2">
-                   <EmojiHappyIcon className = "h-7 text-yellow-300"/>
-                   <p
-                   className = "text-xs sm:text-sm xl:text-base"
-                   >Feeling/Activity</p>
-                </div>
-
+                
                 <div 
                 onClick = { () => filePickerRef.current.click() }
                 className = "flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2">
@@ -136,6 +133,15 @@ function InputBox() {
                   <input ref = {filePickerRef} onChange = { addImageToPost } type = "file" hidden/>
 
                 </div>
+
+                <div className = "flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2">
+                   <EmojiHappyIcon className = "h-7 text-yellow-300"/>
+                   <p
+                   className = "text-xs sm:text-sm xl:text-base"
+                   >Feeling/Activity</p>
+                </div>
+
+                
             </div>
         </div>
     );

@@ -2,26 +2,27 @@ import { ChatAltIcon, ShareIcon, ThumbUpIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import React from 'react';
 
-function Post({name , message, email ,image ,timestamp ,postImage}) {
+function Post({name , message, email  ,timestamp ,postImage}) {
     return (
         <div className = "flex flex-col">
            <div className = "p-5 bg-white mt-5 rounded-t-2xl shadow-sm">
                <div className = "flex items-center space-x-2">
                    <Image
                      className = "rounded-full"
-                      src = {image}
+                      src = "/ml.jpg"
                       width = {40}
                       height = {40}
                       alt = ""
                    />
                    <div>
-                       <p className = "font-medium">{name}</p>
+                       <p className = "font-medium text-gray-500">{name}</p>
                         <p className = "text-xs text-gray-400">
                             {new Date(timestamp?.toDate()).toLocaleString()}
                         </p>
                    </div>
                </div>
-               <p className = "pt-4"> { message } </p>
+               <h2 className = "text-md text-gray-500 pt-2">Message</h2>
+               <p className = "pt-4 text-gray-600"> { message } </p>
            </div>
 
            { postImage && (
